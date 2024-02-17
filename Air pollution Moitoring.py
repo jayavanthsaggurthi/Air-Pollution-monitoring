@@ -30,64 +30,64 @@ df.head()
 # In[73]:
 
 
-#finding out the time when max. pollution occurs at Chadni Chowk
-df[df['Chadni Chowk']==3.0235897439999997].drop(['Gariahat','Dharmatala'],axis=1)
+#finding out the time when max. pollution occurs at Vijayawada
+df[df['Vijayawada']==3.0235897439999997].drop([' Hyderabad','Vizag'],axis=1)
 
 
 # In[74]:
 
 
-#finding out the time when max. pollution occurs at Gariahat
-df[df['Gariahat']==3.0235897439999997].drop(['Chadni Chowk','Dharmatala'],axis=1)
+#finding out the time when max. pollution occurs at  Hyderabad
+df[df[' Hyderabad']==3.0235897439999997].drop(['Vijayawada','Vizag'],axis=1)
 
 
 # In[75]:
 
 
-#finding out the time when max. pollution occurs at Dharmatala
-df[df['Dharmatala']==3.0235897439999997].drop(['Chadni Chowk','Gariahat'],axis=1)
+#finding out the time when max. pollution occurs at Vizag
+df[df['Vizag']==3.0235897439999997].drop(['Vijayawada',' Hyderabad'],axis=1)
 
 
 # In[96]:
 
 
-#finding out pollution level at Chadni Chowk by hourly update
+#finding out pollution level at Vijayawada by hourly update
 plt.figure(figsize=(12,8))
 plt.rcParams.update({'font.size':15})
 x =pd.to_datetime(df['created_at'])
-y=df['Chadni Chowk']
+y=df['Vijayawada']
 plt.plot_date(x, y)
 plt.xlabel("Data & Hour")
 plt.ylabel("Pollution Level")
-plt.title("Hourly Pollution Level at Chadni Chowk")
+plt.title("Hourly Pollution Level at Vijayawada")
 
 
 # In[97]:
 
 
-#finding out pollution level at Gariahat by hourly update
+#finding out pollution level at  Hyderabad by hourly update
 plt.figure(figsize=(12,8))
 plt.rcParams.update({'font.size':15})
 x =pd.to_datetime(df['created_at'])
-y=df['Gariahat']
+y=df[' Hyderabad']
 plt.plot_date(x, y,color='green')
 plt.xlabel("Data & Hour")
 plt.ylabel("Pollution Level")
-plt.title("Hourly Pollution Level at Gariahat")
+plt.title("Hourly Pollution Level at  Hyderabad")
 
 
 # In[98]:
 
 
-#finding out pollution level at Dharmatala by hourly update
+#finding out pollution level at Vizag by hourly update
 plt.figure(figsize=(12,8))
 plt.rcParams.update({'font.size':15})
 x =pd.to_datetime(df['created_at'])
-y=df['Dharmatala']
+y=df['Vizag']
 plt.plot_date(x, y,color='red')
 plt.xlabel("Data & Hour")
 plt.ylabel("Pollution Level")
-plt.title("Hourly Pollution Level at Dharmatala")
+plt.title("Hourly Pollution Level at Vizag")
 
 
 # In[95]:
@@ -95,23 +95,23 @@ plt.title("Hourly Pollution Level at Dharmatala")
 
 #pairplotting
 sns.set(font_scale=1.5)
-g=sns.pairplot(df,hue="Chadni Chowk")
+g=sns.pairplot(df,hue="Vijayawada")
 g.fig.set_size_inches(15,15)
 
 
 # In[108]:
 
 
-sns.jointplot(x="Chadni Chowk",y="Gariahat",data=df,color='green')
+sns.jointplot(x="Vijayawada",y=" Hyderabad",data=df,color='green')
 
 
 # In[109]:
 
 
-sns.jointplot(x="Chadni Chowk",y="Dharmatala",data=df,color='red')
+sns.jointplot(x="Vijayawada",y="Vizag",data=df,color='red')
 
 
 # In[113]:
 
 
-sns.jointplot(x="Dharmatala",y="Gariahat",data=df,color='k')
+sns.jointplot(x="Vizag",y=" Hyderabad",data=df,color='k')
